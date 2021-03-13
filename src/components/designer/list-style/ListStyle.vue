@@ -1,6 +1,6 @@
 <template>
-    <div ref="container" class="list-style-container">
-        <van-row type="flex" :gutter="10" v-if="list && list.length">
+    <div class="list-style-container">
+        <van-row type="flex" :gutter="10" v-if="list?.length">
             <!--大图模式-->
             <van-col class="clear-margin-1" :span="24" v-if="type==='big'" v-for="(item,index) in list" :key="index">
                 <component :is="component" :raw="raw" :item="item" :type="type"></component>
@@ -24,7 +24,7 @@
             </van-col>
         </van-row>
         <!--空时-->
-        <div class="empty-list" :style="emptyStyle" v-else>
+        <div class="empty-list" v-else>
             <van-image :src="require('../../../assets/image/empty.png')" fit="contain" width="50%" height="50%"></van-image>
         </div>
     </div>
@@ -38,13 +38,6 @@
         props: ['type', 'raw', 'list', 'component'],   // type和list都是raw的属性，为了命名统一单独拆出来
         components: {
             GoodsItem
-        },
-        computed: {
-            emptyStyle() {
-                return {
-                    height: `${this.screenWidth / 2}px`
-                };
-            }
         }
     };
 </script>

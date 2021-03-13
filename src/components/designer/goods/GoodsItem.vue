@@ -2,7 +2,7 @@
     <div class="goods-item-container">
         <van-row>
             <van-col :span="imageSpan">
-                <div v-ratio="1" ref="image" class="item-image">
+                <div v-ratio="1" class="item-image">
                     <van-image :src="item.data?.image" width="100%" height="100%" fit="cover"></van-image>
                     <van-tag v-if="raw.showBadge && raw.badge" class="item-badge" type="danger" mark size="medium">
                         <span>{{raw.badge}}</span>

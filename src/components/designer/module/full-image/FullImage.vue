@@ -1,6 +1,6 @@
 <template>
     <div class="full-image-container" :style="mainStyle">
-        <div ref="image" class="full-image" :style="imageStyle">
+        <div class="full-image" :style="imageStyle">
             <van-image v-if="data.image" :src="data.image" fit="cover" width="100%" height="100%" :style="imageStyle"></van-image>
             <van-image v-else :src="require('@/assets/image/empty.png')" fit="contain" width="50%" height="50%"></van-image>
         </div>
