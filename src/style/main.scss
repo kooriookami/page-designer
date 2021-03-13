@@ -1,0 +1,24 @@
+@import "variable";
+@import "designer-form";
+
+// dialog样式
+.el-dialog {
+    transition: width 0.3s;
+
+    .el-dialog__body {
+        padding: 10px 20px;
+    }
+
+    .el-form {
+        .el-select, .el-cascader {
+            width: 100%;
+        }
+    }
+}
+
+// cascader样式
+.el-cascader-panel {
+    .el-cascader-menu {
+        min-width: 120px;
+    }
+}

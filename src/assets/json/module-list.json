@@ -1,0 +1,52 @@
+[
+    {
+        "title": "标题文本",
+        "component": "TitleText",
+        "icon": "fa-text"
+    },
+    {
+        "title": "全幅图片",
+        "component": "FullImage",
+        "icon": "fa-image-polaroid"
+    },
+    {
+        "title": "商品",
+        "component": "Goods",
+        "icon": "fa-shopping-bag"
+    },
+    {
+        "title": "图片广告",
+        "component": "Swipe",
+        "icon": "fa-images"
+    },
+    {
+        "title": "图文导航",
+        "component": "Navigation",
+        "icon": "fa-list-alt"
+    },
+    {
+        "title": "富文本",
+        "component": "RichText",
+        "icon": "fa-font-case"
+    },
+    {
+        "title": "魔方",
+        "component": "Cube",
+        "icon": "fa-cube"
+    },
+    {
+        "title": "辅助分割",
+        "component": "Divider",
+        "icon": "fa-object-ungroup"
+    },
+    {
+        "title": "公告",
+        "component": "Notice",
+        "icon": "fa-volume"
+    },
+    {
+        "title": "优惠券",
+        "component": "Coupon",
+        "icon": "fa-ticket"
+    }
+]

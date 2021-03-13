@@ -1,22 +1,32 @@
 {
-  "name": "eshop-designer",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
-  },
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^3.0.0",
-    "vuex": "^4.0.0-0"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "sass": "^1.26.5",
-    "sass-loader": "^8.0.2"
-  }
+    "name": "page-designer",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build"
+    },
+    "dependencies": {
+        "async-validator": "^3.5.1",
+        "axios": "^0.21.1",
+        "core-js": "^3.9.1",
+        "element-plus": "^1.0.2-beta.34",
+        "lodash": "^4.17.21",
+        "qs": "^6.9.6",
+        "uuid": "^8.3.2",
+        "vant": "^3.0.9",
+        "vue": "^3.0.0",
+        "vue-quill-editor": "^3.0.6",
+        "vuedraggable": "^4.0.1",
+        "vuex": "^4.0.0-0"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "~4.5.11",
+        "@vue/cli-plugin-vuex": "~4.5.11",
+        "@vue/cli-service": "~4.5.11",
+        "@vue/compiler-sfc": "^3.0.7",
+        "compression-webpack-plugin": "^6.1.1",
+        "sass": "^1.32.8",
+        "sass-loader": "^10.1.1"
+    }
 }

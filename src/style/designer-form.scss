@@ -1,0 +1,69 @@
+@import "variable";
+
+div[class$="form-container"] {
+    .form-title {
+        padding: 30px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        border-bottom: 1px solid #dcdfe6;
+
+        .form-remarks {
+            display: block;
+            margin-top: 20px;
+            font-size: 12px;
+            font-weight: normal;
+            color: $info-color;
+        }
+    }
+
+    .form-main {
+        padding: 20px;
+
+        .form-item {
+            display: flex;
+            position: relative;
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 0 4px 0 rgba(10, 42, 97, .2);
+            margin-bottom: 15px;
+
+            .form-item-left {
+                margin-right: 10px;
+            }
+
+            .form-item-right {
+                flex-grow: 1;
+                width: 200px;
+            }
+
+            .form-item-delete {
+                position: absolute;
+                top: -8px;
+                right: -8px;
+                color: $info-color;
+                background-color: white;
+                border-radius: 100%;
+                opacity: 0;
+                transition: all 0.3s;
+                cursor: pointer;
+            }
+
+            &:hover {
+                .form-item-delete {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .el-slider {
+            .el-slider__runway.show-input {
+                margin-right: 100px;
+            }
+
+            .el-slider__input {
+                width: 80px;
+            }
+        }
+    }
+}
