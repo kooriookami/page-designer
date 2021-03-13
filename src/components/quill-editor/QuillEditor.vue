@@ -8,7 +8,7 @@
     import Quill from 'quill';
 
     export default {
-        name: 'RichTextEditor',
+        name: 'QuillEditor',
         props: ['modelValue'],
         data() {
             return {
