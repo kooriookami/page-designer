@@ -48,20 +48,7 @@
             },
             submit() {
                 this.validateAll().then(() => {
-                    let components = this.$_.cloneDeep(this.components);
-                    components.forEach(value => {
-                        if (value.component === 'Goods') {
-                            // 删除goods详情
-                            value.list.forEach(item => {
-                                item.data = null;
-                            });
-                        }
-                        if (value.component === 'RichText') {
-                            //  转base64
-                            value.content = value.content.toBase64();
-                        }
-                    });
-                    this.pageInfo.components = components;
+                    this.pageInfo.components = this.$_.cloneDeep(this.components);
                     console.log(JSON.stringify(this.pageInfo));
                     this.$message.success('请在控制台查看数据');
                 });
