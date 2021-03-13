@@ -1,23 +1,31 @@
 <template>
-    <div class="rich-text-editor-container">
-        <quill-editor ref="editor" :value="data" @input="inputEditor" :options="editorOption" @blur="blurEditor"></quill-editor>
+    <div class="quill-editor-container">
+        <div ref="editor"></div>
     </div>
 </template>
 
 <script>
-    import {Quill} from 'vue-quill-editor';
-
-    let fontSizeStyle = Quill.import('attributors/style/size');
-    fontSizeStyle.whitelist = ['12px', '14px', '16px', '18px', '20px', '22px', '24px', '26px',
-        '28px', '30px', '32px', '36px', '38px', '40px', '48px', '72px', false];
-    Quill.register(fontSizeStyle, true);
+    import Quill from 'quill';
 
     export default {
         name: 'RichTextEditor',
-        props: ['data'],
+        props: ['modelValue'],
         data() {
             return {
-                editorOption: {
+                editor: {}
+            };
+        },
+        mounted() {
+            this.initEditor();
+        },
+        methods: {
+            initEditor() {
+                let fontSizeStyle = Quill.import('attributors/style/size');
+                fontSizeStyle.whitelist = ['12px', '14px', '16px', '18px', '20px', '22px', '24px', '26px',
+                    '28px', '30px', '32px', '36px', '38px', '40px', '48px', '72px', false];
+                Quill.register(fontSizeStyle, true);
+
+                let options = {
                     modules: {
                         toolbar: {
                             container: [
@@ -35,28 +43,31 @@
                         }
                     },
                     theme: 'snow'
+                };
+                this.editor = new Quill(this.$refs.editor, options);
+                if (this.modelValue) {
+                    this.editor.pasteHTML(this.modelValue);
                 }
-            };
-        },
-        methods: {
-            inputEditor(value) {
-                this.$emit('update:data', value);
-            },
-            blurEditor() {
-                this.$emit('blur');
+                this.editor.on('selection-change', range => {
+                    !range ? this.$emit('blur') : this.$emit('focus');
+                });
+                this.editor.on('text-change', () => {
+                    let html = this.$refs.editor.children[0].innerHTML;
+                    this.$emit('update:modelValue', html);
+                });
             }
         }
     };
 </script>
 
 <style lang="scss" scoped>
-    .rich-text-editor-container {
+    .quill-editor-container {
 
     }
 </style>
 
 <style lang="scss">
-    .rich-text-editor-container {
+    .quill-editor-container {
         .ql-snow .ql-editor {
             min-height: 400px;
             padding: 15px;

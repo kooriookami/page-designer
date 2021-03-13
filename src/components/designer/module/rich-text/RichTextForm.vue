@@ -7,7 +7,7 @@
         <div class="form-main">
             <el-form ref="form" :model="current" :rules="rules" label-width="auto" size="small">
                 <el-form-item label-width="0" prop="content">
-                    <RichTextEditor v-model:data="current.content" @blur="$refs.form.validateField('content')"></RichTextEditor>
+                    <QuillEditor v-model="current.content" @blur="$refs.form.validateField('content')"></QuillEditor>
                 </el-form-item>
 
                 <el-divider></el-divider>
@@ -24,13 +24,13 @@
 </template>
 
 <script>
-    import RichTextEditor from '../../../../components/rich-text-editor/RichTextEditor';
+    import QuillEditor from '../../../quill-editor/QuillEditor';
     import {mapState} from 'vuex';
 
     export default {
         name: 'RichTextForm',
         components: {
-            RichTextEditor
+            QuillEditor
         },
         data() {
             return {

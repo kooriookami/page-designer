@@ -90,8 +90,7 @@
             }
         },
         computed: {
-            ...mapState(['shopInfo']),
-            ...mapState(['components', 'status', 'pageInfo', 'storeId'])
+            ...mapState(['components', 'pageInfo'])
         }
     };
 </script>

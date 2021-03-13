@@ -48,10 +48,10 @@
             clearInterval(this.scrollTimer);
         },
         methods: {
-            ...mapMutations(['setScrollId', 'setStatus', 'setPageInfo', 'setComponents', 'setStoreId'])
+            ...mapMutations(['setScrollId', 'setPageInfo', 'setComponents'])
         },
         computed: {
-            ...mapState(['scrollId', 'status', 'pageInfo'])
+            ...mapState(['scrollId', 'pageInfo'])
         },
         watch: {
             scrollId() {
@@ -69,7 +69,7 @@
                             clearInterval(this.scrollTimer);
                             this.setScrollId('');
                         }
-                    }, 17);
+                    }, 8);
                 }
             }
         }
