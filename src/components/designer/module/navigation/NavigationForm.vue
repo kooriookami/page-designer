@@ -28,7 +28,7 @@
                             </div>
 
                             <van-icon class="form-item-delete" name="clear" size="18"
-                                      v-if="current.list && current.list.length > 1" @click="deleteNavigationItem(item)"></van-icon>
+                                      v-if="current.list && current.list.length > 1" @click="deleteNavigationItem(element)"></van-icon>
                         </div>
                     </template>
                 </draggable>
@@ -130,7 +130,7 @@
                 return {
                     list: {
                         image: [
-                            {required: true, message: '请上传图片', trigger: 'change'}
+                            {required: true, message: '请选择图片', trigger: 'change'}
                         ],
                         target: [
                             {required: true, message: '请选择链接', trigger: 'change'}

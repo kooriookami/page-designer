@@ -55,7 +55,7 @@
             rules() {
                 return {
                     image: [
-                        {required: true, message: '请上传图片', trigger: 'change'}
+                        {required: true, message: '请选择图片', trigger: 'change'}
                     ]
                 };
             }

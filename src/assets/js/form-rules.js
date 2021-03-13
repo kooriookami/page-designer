@@ -12,7 +12,7 @@ export default {
     },
     FullImage: {
         image: [
-            {required: true, message: '请上传图片'}
+            {required: true, message: '请选择图片'}
         ]
     },
     Goods: {
@@ -27,7 +27,7 @@ export default {
                 if (value.length) {
                     value.forEach(item => {
                         if (!item.image) {
-                            callback('请上传图片');
+                            callback('请选择图片');
                         }
                     });
                     callback();
@@ -44,7 +44,7 @@ export default {
                 if (value.length) {
                     value.forEach(item => {
                         if (!item.image) {
-                            callback('请上传图片');
+                            callback('请选择图片');
                         }
                         if (!item.target.length) {
                             callback('请选择链接');
@@ -72,7 +72,7 @@ export default {
                         count += item.cube.length;
                     }
                     if (!item.image) {
-                        callback('请上传图片');
+                        callback('请选择图片');
                     }
                 });
                 if (count !== source.density ** 2) {

@@ -5,7 +5,7 @@
         </el-header>
 
         <el-container>
-            <el-aside class="left-aside" width="200px">
+            <el-aside class="left-aside" width="200px" :style="leftStyle">
                 <el-scrollbar>
                     <DesignerLeft></DesignerLeft>
                 </el-scrollbar>
@@ -51,7 +51,12 @@
             ...mapMutations(['setScrollId', 'setPageInfo', 'setComponents'])
         },
         computed: {
-            ...mapState(['scrollId', 'pageInfo'])
+            ...mapState(['scrollId', 'pageInfo', 'collapse']),
+            leftStyle() {
+                return {
+                    marginLeft: this.collapse ? '-200px' : '0'
+                };
+            }
         },
         watch: {
             scrollId() {
@@ -87,6 +92,7 @@
 
             .left-aside {
                 border-right: 1px solid #dcdfe6;
+                transition: all 0.3s;
             }
 
             .el-main {

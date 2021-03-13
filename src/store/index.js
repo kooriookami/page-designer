@@ -2,6 +2,7 @@ import {createStore} from 'vuex';
 
 export default createStore({
     state: {
+        collapse: false,
         pageInfo: {
             id: '',
             component: 'Page',
@@ -16,6 +17,9 @@ export default createStore({
         validateKey: 0 // 监听该值，触发form校验
     },
     mutations: {
+        setCollapse(state) {
+            state.collapse = !state.collapse;
+        },
         setPageInfo(state, value) {
             state.pageInfo = value;
         },

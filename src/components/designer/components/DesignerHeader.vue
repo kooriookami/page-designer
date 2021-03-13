@@ -1,8 +1,20 @@
 <template>
     <div class="designer-header-container">
-        <el-button plain @click="preview" size="medium">预览</el-button>
-        <el-button type="primary" @click="submit" size="medium">提交</el-button>
-        <PreviewPage :pageInfo="pageInfo" :components="components" v-model="showPreview"></PreviewPage>
+        <div class="header-left">
+            <el-button class="collapse-icon" type="text" @click="setCollapse">
+                <i class="fal fa-arrow-to-left" :style="collapseIconStyle"></i>
+            </el-button>
+        </div>
+
+        <div class="header-right">
+            <el-space :size="10">
+                <i class="fab fa-github" @click="toGithub"></i>
+                <el-button plain @click="preview" size="medium">预览</el-button>
+                <el-button type="primary" @click="submit" size="medium">提交</el-button>
+            </el-space>
+
+            <PreviewPage :pageInfo="pageInfo" :components="components" v-model="showPreview"></PreviewPage>
+        </div>
     </div>
 </template>
 
@@ -22,7 +34,10 @@
             };
         },
         methods: {
-            ...mapMutations(['setScrollId', 'setCurrent', 'setValidateKey']),
+            ...mapMutations(['setScrollId', 'setCurrent', 'setValidateKey', 'setCollapse']),
+            toGithub() {
+                open('https://github.com/kooriookami/page-designer');
+            },
             preview() {
                 this.validateAll().then(() => {
                     this.showPreview = true;
@@ -90,7 +105,12 @@
             }
         },
         computed: {
-            ...mapState(['components', 'pageInfo'])
+            ...mapState(['components', 'pageInfo', 'collapse']),
+            collapseIconStyle() {
+                return {
+                    transform: this.collapse ? 'rotate(180deg)' : ''
+                };
+            }
         }
     };
 </script>
@@ -99,7 +119,28 @@
     .designer-header-container {
         height: 100%;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
+
+        .header-left {
+            .collapse-icon {
+                font-size: 24px;
+
+                i {
+                    transition: all 0.3s;
+                }
+            }
+        }
+
+        .header-right {
+            i {
+                font-size: 24px;
+                cursor: pointer;
+
+                &:hover {
+                    color: $primary-color
+                }
+            }
+        }
     }
 </style>
