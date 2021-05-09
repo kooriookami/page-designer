@@ -44,11 +44,14 @@
                 scrollTimer: ''
             };
         },
+        mounted() {
+            this.setCurrent(this.pageInfo);
+        },
         unmounted() {
             clearInterval(this.scrollTimer);
         },
         methods: {
-            ...mapMutations(['setScrollId', 'setPageInfo', 'setComponents'])
+            ...mapMutations(['setScrollId', 'setPageInfo', 'setComponents', 'setCurrent'])
         },
         computed: {
             ...mapState(['scrollId', 'pageInfo', 'collapse']),
